@@ -10,11 +10,13 @@ yargs.command({
     builder: {
         title:{
             describe: 'Note title',
-            demandOption:true
+            demandOption:true,
+            type:'string'
         },
         body:{
             describe:'Note Body',
-            demandOption:true
+            demandOption:true,
+            type:'string'
         }
     },
     handler:function(argv) {
@@ -26,7 +28,9 @@ yargs.command({
     decribe:'Remove an existing note',
     builder: {
         title:{
-            describe:'Note title'
+            describe:'Note title',
+            demandOption:true,
+            type:'string'
         }
     },
     handler:function() {
@@ -38,7 +42,9 @@ yargs.command({
     decribe:'Read an existing note',
     builder:{
         title:{
-            describe:'Note title'
+            describe:'Note title',
+            demandOption:true,
+            type:'string'
         }
     },
     handler:function() {
