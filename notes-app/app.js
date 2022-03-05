@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const yargs = require('yargs')
 const getNotes  = require('./notes.js')
-
+const fs = require('fs')
 // add, remove, read, list
 //create add command
 yargs.command({
