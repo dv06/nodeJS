@@ -3,12 +3,15 @@ const chalk = require('chalk')
 
 const getNotes = (title)=>{
     const notes = loadNotes()
-    const note = notes.filter(x => x.title === title)
-    if(note.length === 0)
+    const note = findNotes(notes, title)
+    if(note)
     {
-        console.log(chalk.red('No notes found!'))
+        console.log(chalk.inverse(note.title))  
+        console.log(note.body)
+        return
     }
-    console.log(note)
+    console.log(chalk.red.inverse('No notes found!'))
+
 }
 
 const getNotesList = ()=>{
@@ -20,7 +23,7 @@ const getNotesList = ()=>{
     }
     for(let i= 0; i < notes.length; i++)
     {
-        console.log(notes[i].title)
+        console.log(chalk.blue(notes[i].title))
     }
 }
 
@@ -58,7 +61,7 @@ const addNotes = (title, body)=>{
 }
 
 const findNotes = (notes, title)=>{
-    return notes.filter(x=> x.title === title)
+    return notes.find(x=> x.title === title)
 }
 
 const saveNotes = function(note) {
