@@ -11,7 +11,6 @@ const getNotes = (title)=>{
         return
     }
     console.log(chalk.red.inverse('No notes found!'))
-
 }
 
 const getNotesList = ()=>{
@@ -29,7 +28,6 @@ const getNotesList = ()=>{
 
 const removeNotes =(title)=>{
     const notes = loadNotes()
-
     const filteredNotes = notes.filter(x=> x.title != title)
     if(filteredNotes.length !== notes.length)
     {
@@ -51,13 +49,11 @@ const addNotes = (title, body)=>{
         })
         saveNotes(notes)
         console.log(chalk.green.inverse('New note added!'))
-
     }
     else
     {
         console.log(chalk.red.inverse('Title already in use!'))
     }
-
 }
 
 const findNotes = (notes, title)=>{
