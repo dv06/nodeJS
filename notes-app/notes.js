@@ -1,7 +1,7 @@
 const fs = require('fs')
 const chalk = require('chalk')
 
-const getNotes = function(title) {
+const getNotes = (title)=>{
     const notes = loadNotes()
     const note = notes.filter(x => x.title === title)
     if(note.length === 0)
@@ -11,7 +11,7 @@ const getNotes = function(title) {
     console.log(note)
 }
 
-const getNotesList = function() {
+const getNotesList = ()=>{
     const notes = loadNotes()
     if(notes.length === 0)
     {
@@ -24,7 +24,7 @@ const getNotesList = function() {
     }
 }
 
-const removeNotes = function(title) {
+const removeNotes =(title)=>{
     const notes = loadNotes()
 
     const filteredNotes = notes.filter(x=> x.title != title)
@@ -37,7 +37,7 @@ const removeNotes = function(title) {
     console.log(chalk.red.inverse('No node found!')) 
 }
 
-const addNotes = function(title, body) {
+const addNotes = (title, body)=>{
     const notes = loadNotes()
     const doesNoteExist = findNotes(notes, title)
     if(doesNoteExist.length == 0)
@@ -57,7 +57,7 @@ const addNotes = function(title, body) {
 
 }
 
-const findNotes = function(notes, title) {
+const findNotes = (notes, title)=>{
     return notes.filter(x=> x.title === title)
 }
 
@@ -66,7 +66,7 @@ const saveNotes = function(note) {
     fs.writeFileSync('notes.json',noteString)
 }
 
-const loadNotes = function() {
+const loadNotes = ()=>{
     try{
         const data = fs.readFileSync('notes.json').toString()
         const jsonData = JSON.parse(data)
